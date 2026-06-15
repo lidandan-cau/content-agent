@@ -126,8 +126,12 @@ TOPIC: <一句话说明今日具体选题>
 
     # 解析公众号版
     gzh = ""
-    if "===GZH_START===" in raw and "===GZH_END===" in raw:
-        gzh = raw.split("===GZH_START===")[1].split("===GZH_END===")[0].strip()
+    if "===GZH_START===" in raw:
+        gzh_part = raw.split("===GZH_START===")[1]
+        if "===GZH_END===" in gzh_part:
+            gzh = gzh_part.split("===GZH_END===")[0].strip()
+        else:
+            gzh = gzh_part.strip()  # 没有结束标记也取内容
 
     return topic, xhs, gzh
 
