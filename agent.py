@@ -254,13 +254,7 @@ def main():
     topic, xhs, gzh = generate_content(date_str, weekday)
     print(f"今日选题：{topic}\n")
 
-    # 2. 推送小红书版
-    xhs_body = f"> 📅 {date_str}（{WEEKDAY_NAMES[weekday]}）\n> 今日选题：{topic}\n\n---\n\n{xhs}"
-    send_to_wechat(f"📱 内容草稿·小红书版 {month_day}", xhs_body)
-
-    time.sleep(2)  # 避免推送频率限制
-
-    # 3. 推送公众号版
+    # 推送公众号版
     gzh_body = f"> 📅 {date_str}（{WEEKDAY_NAMES[weekday]}）\n> 今日选题：{topic}\n\n---\n\n{gzh}"
     send_to_wechat(f"📖 内容草稿·公众号版 {month_day}", gzh_body)
 

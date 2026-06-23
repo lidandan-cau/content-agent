@@ -285,12 +285,6 @@ def main():
     concept, xhs, gzh = generate_content(date_str, weekday)
     print(f"今日概念：{concept}\n")
 
-    # 推送小红书版
-    xhs_body = f"> 📅 {date_str}（{WEEKDAY_NAMES[weekday]}）\n> 今日概念：{concept}\n\n---\n\n{xhs}"
-    send_to_wechat(f"🧠 心理知识·小红书版 {month_day}", xhs_body)
-
-    time.sleep(2)
-
     # 推送公众号版
     gzh_body = f"> 📅 {date_str}（{WEEKDAY_NAMES[weekday]}）\n> 今日概念：{concept}\n\n---\n\n{gzh}"
     send_to_wechat(f"🧠 心理知识·公众号版 {month_day}", gzh_body)
